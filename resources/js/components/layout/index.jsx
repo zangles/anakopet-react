@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Login from '../login'
+import {connect} from "react-redux";
+import Dashboard from "../dashboard";
+import ls from 'local-storage';
 
 const styles = theme => ({
     root: {
@@ -17,15 +19,44 @@ class Layout extends Component {
         super(props);
     }
 
+    renderBody () {
+        let authToken = ls.get('authToken');
+        // ls.remove('authToken');
+
+        if (authToken === null) {
+            return (<Login />)
+        } else {
+            switch (this.props.view) {
+                case undefined:
+                    return (<Dashboard />);
+                case 'dashboard':
+                    return (<Dashboard />);
+                default:
+                    return (<div>No '{this.props.view}' view</div>);
+            }
+        }
+    }
+
     render() {
+
         const { classes } = this.props
 
         return (
             <div className={classes.root}>
-                <Login />
+                {this.renderBody()}
             </div>
         );
     }
 }
+const mapStateToProps = (globalState) => {
+    return {
+        authToken: globalState.login.authToken,
+        view: globalState.view.actualView
+    }
+};
 
-export default withStyles(styles)(Layout)
+const mapDispatchToProps = (dispatch) => {
+    return {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Layout));

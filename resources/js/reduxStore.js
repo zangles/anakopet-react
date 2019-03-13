@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import loginReducer from './reducers/login.jsx';
+import ViewReducer from './reducers/view'
 import thunk from 'redux-thunk';
 
 export const reduxStore = (initialState) => {
@@ -14,6 +15,7 @@ export const reduxStore = (initialState) => {
     let store = createStore(combineReducers({
         siteConfig: siteConfigReducer,
         login: loginReducer,
+        view: ViewReducer,
     }), initialState,
         compose(
             applyMiddleware(thunk),

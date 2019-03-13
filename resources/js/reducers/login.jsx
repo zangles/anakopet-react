@@ -3,6 +3,8 @@ import {
     LOGIN_FAILED,
 } from '../actions/login.jsx';
 
+import ls from 'local-storage';
+
 const initialState = {
     username: '',
     password: '',
@@ -27,6 +29,8 @@ const loginReducer = (state = initialState, action) => {
     
     return ({
         LOGIN_SUCCESSFUL: () => {
+            ls.set('authToken', action.authToken);
+
             return updateState({
                 authToken: action.authToken,
                 accessToken: action.accessToken,

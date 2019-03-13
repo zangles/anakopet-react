@@ -19,6 +19,7 @@ import { CLIENT_ID, CLIENT_SECRET} from '../../config';
 import {styles} from './styles'
 
 import { loginSuccessful } from '../../actions/login'
+import { changeView } from '../../actions/view'
 
 export const API_HOST = (typeof window !== "undefined" && window.__CONFIG__ ? window.__CONFIG__.apiHost : global.__CONFIG__.apiHost);
 
@@ -91,8 +92,9 @@ class Login extends Component {
                 let tokenType = json['token_type'];
                 let accessToken = json['access_token'];
                 let refreshToken = json['refresh_token'];
-                this.setState({status: {...this.state.status, success: true, sending: false}})
-                this.props.login(tokenType, accessToken, refreshToken)
+                this.setState({status: {...this.state.status, success: true, sending: false}});
+                this.props.login(tokenType, accessToken, refreshToken);
+                this.props.changeView('dashboard');
             })
             .catch((err) => {
                 console.log(err);
@@ -199,7 +201,8 @@ const mapStateToProps = (globalState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (tokenType, accessToken, refreshToken) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken))
+        login: (tokenType, accessToken, refreshToken) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken)),
+        changeView: (view) => dispatch(changeView(view))
     }
 };
 
