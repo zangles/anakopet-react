@@ -1,6 +1,7 @@
 import {
     LOGIN_SUCCESSFUL,
     LOGIN_FAILED,
+    LOGOUT
 } from '../actions/login.jsx';
 
 import ls from 'local-storage';
@@ -48,6 +49,16 @@ const loginReducer = (state = initialState, action) => {
                 inProgress: false
             });
         },
+
+        LOGOUT: () => {
+            ls.remove('authToken');
+
+            return updateState({
+                authToken: '',
+                accessToken: '',
+                refreshToken: '',
+            })
+        }
 
     }[action.type] || (() => state))();
 

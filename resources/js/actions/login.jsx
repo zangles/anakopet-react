@@ -23,6 +23,13 @@ export const loginSuccessful = (tokenType, accessToken, refreshToken) => {
     }
 };
 
+export const logout = () => {
+    return {
+        type: 'LOGOUT'
+    };
+};
+
+
 export const loginFailed = (err) => {
     return {
         type: 'LOGIN_FAILED',

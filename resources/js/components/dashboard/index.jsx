@@ -22,7 +22,7 @@ class Dashboard extends Component {
                 className={classes.container}
             >
                 <Paper className={paperClass}>
-                    <span className={classes.title}>Welcome to Cork Petsit</span>
+                    <span className={classes.title}>THIS IS THE DASHBOARD</span>
                 </Paper>
             </Grid>
         )

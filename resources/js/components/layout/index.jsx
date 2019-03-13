@@ -4,6 +4,7 @@ import Login from '../login'
 import {connect} from "react-redux";
 import Dashboard from "../dashboard";
 import ls from 'local-storage';
+import AppLayout from '../appLayout'
 
 const styles = theme => ({
     root: {
@@ -26,14 +27,18 @@ class Layout extends Component {
         if (authToken === null) {
             return (<Login />)
         } else {
-            switch (this.props.view) {
-                case undefined:
-                    return (<Dashboard />);
-                case 'dashboard':
-                    return (<Dashboard />);
-                default:
-                    return (<div>No '{this.props.view}' view</div>);
-            }
+            return (<AppLayout>{this.renderView()}</AppLayout>)
+        }
+    }
+
+    renderView() {
+        switch (this.props.view) {
+            case undefined:
+                return (<Dashboard />);
+            case 'dashboard':
+                return (<Dashboard />);
+            default:
+                return (<div>No '{this.props.view}' view</div>);
         }
     }
 
