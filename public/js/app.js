@@ -31656,6 +31656,35 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/es/colors/blue.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/core/es/colors/blue.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const blue = {
+  50: '#e3f2fd',
+  100: '#bbdefb',
+  200: '#90caf9',
+  300: '#64b5f6',
+  400: '#42a5f5',
+  500: '#2196f3',
+  600: '#1e88e5',
+  700: '#1976d2',
+  800: '#1565c0',
+  900: '#0d47a1',
+  A100: '#82b1ff',
+  A200: '#448aff',
+  A400: '#2979ff',
+  A700: '#2962ff'
+};
+/* harmony default export */ __webpack_exports__["default"] = (blue);
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/index.es.js":
 /*!****************************************************!*\
   !*** ./node_modules/@material-ui/core/index.es.js ***!
@@ -108757,7 +108786,10 @@ function (_Component) {
         className: classes.root
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_3___default.a, {
         position: "static",
-        color: "primary"
+        color: "primary",
+        classes: {
+          colorPrimary: classes.appBar
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_4___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6___default.a, {
         className: classes.menuButton,
         color: "inherit",
@@ -108823,6 +108855,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _material_ui_core_es_colors_blue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/es/colors/blue */ "./node_modules/@material-ui/core/es/colors/blue.js");
+
 var styles = function styles(theme) {
   return {
     root: {
@@ -108830,6 +108864,9 @@ var styles = function styles(theme) {
       top: 0,
       position: 'absolute',
       width: '90%'
+    },
+    appBar: {
+      backgroundColor: _material_ui_core_es_colors_blue__WEBPACK_IMPORTED_MODULE_0__["default"][400]
     },
     grow: {
       flexGrow: 1

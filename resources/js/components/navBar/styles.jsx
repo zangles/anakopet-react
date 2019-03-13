@@ -1,3 +1,4 @@
+import blue from "@material-ui/core/es/colors/blue";
 
 export const styles = theme => ({
     root: {
@@ -5,6 +6,9 @@ export const styles = theme => ({
         top: 0,
         position: 'absolute',
         width: '90%'
+    },
+    appBar: {
+        backgroundColor: blue[400]
     },
     grow: {
         flexGrow: 1,
