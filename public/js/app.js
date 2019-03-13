@@ -6172,41 +6172,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/@material-ui/core/colors/orange.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@material-ui/core/colors/orange.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var orange = {
-  50: '#fff3e0',
-  100: '#ffe0b2',
-  200: '#ffcc80',
-  300: '#ffb74d',
-  400: '#ffa726',
-  500: '#ff9800',
-  600: '#fb8c00',
-  700: '#f57c00',
-  800: '#ef6c00',
-  900: '#e65100',
-  A100: '#ffd180',
-  A200: '#ffab40',
-  A400: '#ff9100',
-  A700: '#ff6d00'
-};
-var _default = orange;
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/@material-ui/core/colors/pink.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/core/colors/pink.js ***!
@@ -77818,19 +77783,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/Typography/index.js");
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/colors/cyan */ "./node_modules/@material-ui/core/colors/cyan.js");
-/* harmony import */ var _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/colors/green */ "./node_modules/@material-ui/core/colors/green.js");
-/* harmony import */ var _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/colors/orange */ "./node_modules/@material-ui/core/colors/orange.js");
-/* harmony import */ var _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/colors/red */ "./node_modules/@material-ui/core/colors/red.js");
-/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/CircularProgress/index.js");
-/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../img/logo.png */ "./resources/img/logo.png");
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_img_logo_png__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../config */ "./resources/js/config.jsx");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/CircularProgress/index.js");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../img/logo.png */ "./resources/img/logo.png");
+/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_img_logo_png__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../config */ "./resources/js/config.jsx");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles */ "./resources/js/components/login/styles.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -77866,98 +77824,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
-
-
-var styles = function styles(theme) {
-  return {
-    spinner: {
-      color: 'white'
-    },
-    container: {
-      height: '100%'
-    },
-    form: {
-      display: 'flex',
-      flexWrap: 'wrap'
-    },
-    title: {
-      fontWeight: 'bold',
-      fontSize: 'medium'
-    },
-    cssLabelUser: {
-      '&$cssFocusedUser': {
-        color: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10___default.a['A700']
-      }
-    },
-    cssUnderlineUser: {
-      '&:after': {
-        borderBottomColor: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10___default.a['A700']
-      }
-    },
-    cssFocusedUser: {},
-    userInput: {
-      color: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10___default.a['A700']
-    },
-    cssLabelPass: {
-      '&$cssFocusedPass': {
-        color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
-      }
-    },
-    cssUnderlinePass: {
-      '&:after': {
-        borderBottomColor: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
-      }
-    },
-    cssFocusedPass: {},
-    passInput: {
-      color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
-    },
-    cssLoginButton: {
-      marginTop: '30px',
-      width: '200px',
-      color: theme.palette.getContrastText(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9___default.a[500]),
-      backgroundColor: _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9___default.a[500],
-      '&:hover': {
-        backgroundColor: _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9___default.a[700],
-        color: theme.palette.getContrastText(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_9___default.a[700])
-      }
-    },
-    footerText: {
-      marginTop: '10px',
-      fontSize: 'x-small'
-    },
-    textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit,
-      width: '200px'
-    },
-    formControl: {
-      marginTop: '15px'
-    },
-    paper: {
-      padding: theme.spacing.unit * 2,
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      width: '300px'
-    },
-    error: {
-      padding: theme.spacing.unit * 2,
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      width: '300px',
-      boxShadow: '0px 1px 20px 0px rgba(228, 7, 7, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)'
-    },
-    success: {
-      padding: theme.spacing.unit * 2,
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      width: '300px',
-      boxShadow: '0px 1px 20px 3px rgba(5, 136, 4, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);'
-    }
-  };
-};
 
 var Login =
 /*#__PURE__*/
@@ -77999,7 +77865,7 @@ function (_Component) {
     key: "renderSpinner",
     value: function renderSpinner() {
       var classes = this.props.classes;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9___default.a, {
         className: classes.spinner,
         size: 16
       }));
@@ -78015,13 +77881,13 @@ function (_Component) {
           sending: true
         })
       });
-      return fetch(_config__WEBPACK_IMPORTED_MODULE_15__["API_HOST"] + '/oauth/token', {
+      return fetch(_config__WEBPACK_IMPORTED_MODULE_11__["API_HOST"] + '/oauth/token', {
         method: 'POST',
         body: JSON.stringify({
           username: this.state.userName,
           password: this.state.password,
-          client_id: _config__WEBPACK_IMPORTED_MODULE_15__["CLIENT_ID"],
-          client_secret: _config__WEBPACK_IMPORTED_MODULE_15__["CLIENT_SECRET"],
+          client_id: _config__WEBPACK_IMPORTED_MODULE_11__["CLIENT_ID"],
+          client_secret: _config__WEBPACK_IMPORTED_MODULE_11__["CLIENT_SECRET"],
           grant_type: 'password'
         }),
         headers: {
@@ -78029,7 +77895,7 @@ function (_Component) {
           'Accept': 'application/json'
         }
       }).then(function (res) {
-        if (res.status == 200) {
+        if (res.status === 200) {
           return res.json();
         } else {
           throw Object.assign({}, new Error("Response returned statusCode " + res.status), {
@@ -78049,6 +77915,8 @@ function (_Component) {
           })
         });
       }).catch(function (err) {
+        console.log(err);
+
         _this2.setState({
           status: _objectSpread({}, _this2.state.status, {
             error: true,
@@ -78082,7 +77950,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_3___default.a, {
         className: paperClass
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _img_logo_png__WEBPACK_IMPORTED_MODULE_14___default.a,
+        src: _img_logo_png__WEBPACK_IMPORTED_MODULE_10___default.a,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: classes.title
@@ -78137,7 +78005,117 @@ function (_Component) {
   return Login;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Login));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(_styles__WEBPACK_IMPORTED_MODULE_12__["styles"])(Login));
+
+/***/ }),
+
+/***/ "./resources/js/components/login/styles.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/login/styles.jsx ***!
+  \**************************************************/
+/*! exports provided: styles */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/colors/green */ "./node_modules/@material-ui/core/colors/green.js");
+/* harmony import */ var _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/colors/red */ "./node_modules/@material-ui/core/colors/red.js");
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/colors/cyan */ "./node_modules/@material-ui/core/colors/cyan.js");
+/* harmony import */ var _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var styles = function styles(theme) {
+  return {
+    spinner: {
+      color: 'white'
+    },
+    container: {
+      height: '100%'
+    },
+    form: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 'medium'
+    },
+    cssLabelUser: {
+      '&$cssFocusedUser': {
+        color: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0___default.a['A700']
+      }
+    },
+    cssUnderlineUser: {
+      '&:after': {
+        borderBottomColor: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0___default.a['A700']
+      }
+    },
+    cssFocusedUser: {},
+    userInput: {
+      color: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_0___default.a['A700']
+    },
+    cssLabelPass: {
+      '&$cssFocusedPass': {
+        color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1___default.a['A200']
+      }
+    },
+    cssUnderlinePass: {
+      '&:after': {
+        borderBottomColor: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1___default.a['A200']
+      }
+    },
+    cssFocusedPass: {},
+    passInput: {
+      color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_1___default.a['A200']
+    },
+    cssLoginButton: {
+      marginTop: '30px',
+      width: '200px',
+      color: theme.palette.getContrastText(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2___default.a[500]),
+      backgroundColor: _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2___default.a[500],
+      '&:hover': {
+        backgroundColor: _material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2___default.a[700],
+        color: theme.palette.getContrastText(_material_ui_core_colors_cyan__WEBPACK_IMPORTED_MODULE_2___default.a[700])
+      }
+    },
+    footerText: {
+      marginTop: '10px',
+      fontSize: 'x-small'
+    },
+    textField: {
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
+      width: '200px'
+    },
+    formControl: {
+      marginTop: '15px'
+    },
+    paper: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: '300px'
+    },
+    error: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: '300px',
+      boxShadow: '0px 1px 20px 0px rgba(228, 7, 7, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)'
+    },
+    success: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: '300px',
+      boxShadow: '0px 1px 20px 3px rgba(5, 136, 4, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);'
+    }
+  };
+};
 
 /***/ }),
 
