@@ -77525,6 +77525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../img/logo.png */ "./resources/img/logo.png");
 /* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_img_logo_png__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../config */ "./resources/js/config.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77542,6 +77543,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -77635,14 +77637,69 @@ function (_Component) {
   _inherits(Login, _Component);
 
   function Login(props) {
+    var _this;
+
     _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
+
+    _this.handleUserNameChange = function (e) {
+      _this.setState({
+        userName: e.target.value
+      });
+    };
+
+    _this.handlePasswordChange = function (e) {
+      _this.setState({
+        password: e.target.value
+      });
+    };
+
+    _this.state = {
+      userName: '',
+      password: ''
+    };
+    return _this;
   }
 
   _createClass(Login, [{
+    key: "doLogin",
+    value: function doLogin() {
+      return fetch(_config__WEBPACK_IMPORTED_MODULE_13__["API_HOST"] + '/oauth/token', {
+        method: 'POST',
+        body: JSON.stringify({
+          username: this.state.userName,
+          password: this.state.password,
+          client_id: _config__WEBPACK_IMPORTED_MODULE_13__["CLIENT_ID"],
+          client_secret: _config__WEBPACK_IMPORTED_MODULE_13__["CLIENT_SECRET"],
+          grant_type: 'password'
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }).then(function (res) {
+        if (res.status == 200) {
+          return res.json();
+        } else {
+          throw Object.assign({}, new Error("Response returned statusCode " + res.status), {
+            id: "login.loginError"
+          });
+        }
+      }).then(function (json) {
+        var tokenType = json['token_type'];
+        var accessToken = json['access_token'];
+        var refreshToken = json['refresh_token'];
+        console.log(tokenType, accessToken, refreshToken); // dispatch(loginSuccessful(tokenType, accessToken, refreshToken));
+      }).catch(function (err) {
+        dispatch(loginFailed(err));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var classes = this.props.classes;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
         container: true,
@@ -77673,7 +77730,8 @@ function (_Component) {
         classes: {
           underline: classes.cssUnderlineUser
         },
-        className: classes.userInput
+        className: classes.userInput,
+        onChange: this.handleUserNameChange
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
         className: classes.formControl
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -77688,11 +77746,15 @@ function (_Component) {
         classes: {
           underline: classes.cssUnderlinePass
         },
-        className: classes.passInput
+        className: classes.passInput,
+        onChange: this.handlePasswordChange
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
         variant: "contained",
         color: "primary",
-        className: classes.cssLoginButton
+        className: classes.cssLoginButton,
+        onClick: function onClick() {
+          return _this2.doLogin();
+        }
       }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
         className: classes.footerText,
         color: "textSecondary"
@@ -77704,6 +77766,24 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Login));
+
+/***/ }),
+
+/***/ "./resources/js/config.jsx":
+/*!*********************************!*\
+  !*** ./resources/js/config.jsx ***!
+  \*********************************/
+/*! exports provided: CLIENT_SECRET, CLIENT_ID, API_HOST */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLIENT_SECRET", function() { return CLIENT_SECRET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLIENT_ID", function() { return CLIENT_ID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_HOST", function() { return API_HOST; });
+var CLIENT_SECRET = 'yj6kzZiR1GnLC2xC8gdaybxokt7lkOVYkzrmXj2K';
+var CLIENT_ID = '2';
+var API_HOST = 'http://anakopet-react.test/';
 
 /***/ }),
 

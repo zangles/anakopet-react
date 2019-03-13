@@ -13,6 +13,8 @@ import orange from '@material-ui/core/colors/orange';
 
 import logo from '../../../img/logo.png'
 
+import { API_HOST, CLIENT_ID, CLIENT_SECRET } from '../../config';
+
 const styles = theme => ({
     container: {
         height: '100%',
@@ -91,6 +93,52 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            userName: '',
+            password: ''
+        }
+    }
+
+    handleUserNameChange = (e) => {
+        this.setState({userName: e.target.value})
+    }
+
+    handlePasswordChange = (e) => {
+        this.setState({password: e.target.value})
+    }
+
+    doLogin () {
+        return fetch(API_HOST + '/oauth/token', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: this.state.userName,
+                password: this.state.password,
+                client_id: CLIENT_ID,
+                client_secret: CLIENT_SECRET,
+                grant_type: 'password'
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(res => {
+                if (res.status == 200) {
+                    return res.json();
+                } else {
+                    throw Object.assign({}, new Error("Response returned statusCode " + res.status), { id: "login.loginError" });
+                }
+            })
+            .then(json => {
+                var tokenType = json['token_type'];
+                var accessToken = json['access_token'];
+                var refreshToken = json['refresh_token'];
+                console.log(tokenType, accessToken, refreshToken)
+                // dispatch(loginSuccessful(tokenType, accessToken, refreshToken));
+            })
+            .catch((err) => {
+                dispatch(loginFailed(err));
+            });
     }
 
     render () {
@@ -125,6 +173,7 @@ class Login extends Component {
                                     underline: classes.cssUnderlineUser,
                                 }}
                                 className={classes.userInput}
+                                onChange={this.handleUserNameChange}
                             />
                         </FormControl>
                         <br/>
@@ -145,6 +194,7 @@ class Login extends Component {
                                     underline: classes.cssUnderlinePass,
                                 }}
                                 className={classes.passInput}
+                                onChange={this.handlePasswordChange}
                             />
                         </FormControl>
                         <br/>
@@ -152,6 +202,7 @@ class Login extends Component {
                             variant="contained"
                             color="primary"
                             className={classes.cssLoginButton}
+                            onClick={() => this.doLogin()}
                         >
                             Login
                         </Button>
