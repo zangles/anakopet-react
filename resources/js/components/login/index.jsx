@@ -10,12 +10,17 @@ import Typography from '@material-ui/core/Typography';
 import cyan from '@material-ui/core/colors/cyan';
 import green from '@material-ui/core/colors/green';
 import orange from '@material-ui/core/colors/orange';
+import red from '@material-ui/core/colors/red';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import logo from '../../../img/logo.png'
 
 import { API_HOST, CLIENT_ID, CLIENT_SECRET } from '../../config';
 
 const styles = theme => ({
+    spinner: {
+        color: 'white'
+    },
     container: {
         height: '100%',
     },
@@ -45,17 +50,17 @@ const styles = theme => ({
 
     cssLabelPass: {
         '&$cssFocusedPass': {
-            color: orange[500],
+            color: red['A200'],
         },
     },
     cssUnderlinePass: {
         '&:after': {
-            borderBottomColor: orange[500],
+            borderBottomColor: red['A200'],
         },
     },
     cssFocusedPass: {},
     passInput: {
-        color: orange[500]
+        color: red['A200']
     },
 
     cssLoginButton: {
@@ -77,15 +82,29 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         width: '200px'
     },
+    formControl: {
+        marginTop: '15px'
+    },
     paper: {
         padding: theme.spacing.unit * 2,
         textAlign: 'center',
         color: theme.palette.text.secondary,
         width: '300px'
     },
-    formControl: {
-        marginTop: '15px'
+    error: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        width: '300px',
+        boxShadow: '0px 1px 20px 0px rgba(228, 7, 7, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)'
     },
+    success: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        width: '300px',
+        boxShadow: '0px 1px 20px 3px rgba(5, 136, 4, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);'
+    }
 
 });
 
@@ -95,7 +114,12 @@ class Login extends Component {
         super(props);
         this.state = {
             userName: '',
-            password: ''
+            password: '',
+            status: {
+                sending: false,
+                success: false,
+                error: false
+            }
         }
     }
 
@@ -107,7 +131,21 @@ class Login extends Component {
         this.setState({password: e.target.value})
     }
 
+    renderSpinner () {
+        const { classes } = this.props;
+        return (
+            <div>
+                <CircularProgress
+                    className={classes.spinner}
+                    size={16}
+                />
+            </div>
+        );
+    }
+
     doLogin () {
+        this.setState({status: {...this.state.status, error:false, sending:true}})
+
         return fetch(API_HOST + '/oauth/token', {
             method: 'POST',
             body: JSON.stringify({
@@ -135,14 +173,24 @@ class Login extends Component {
                 var refreshToken = json['refresh_token'];
                 console.log(tokenType, accessToken, refreshToken)
                 // dispatch(loginSuccessful(tokenType, accessToken, refreshToken));
+                this.setState({status: {...this.state.status, success:true, sending:false}})
             })
             .catch((err) => {
-                dispatch(loginFailed(err));
+                this.setState({status: {...this.state.status, error:true, sending:false}})
             });
     }
 
     render () {
         const { classes } = this.props;
+        let paperClass = classes.paper;
+
+        if (this.state.status.error) {
+            paperClass = classes.error
+        }
+
+        if (this.state.status.success) {
+            paperClass = classes.success
+        }
 
         return (
             <Grid
@@ -152,7 +200,7 @@ class Login extends Component {
                 alignItems="center"
                 className={classes.container}
             >
-                <Paper className={classes.paper}>
+                <Paper className={paperClass}>
                     <img src={logo} alt=""/>
                     <br/>
                     <span className={classes.title}>Welcome to AnaKo Petsit</span>
@@ -204,7 +252,7 @@ class Login extends Component {
                             className={classes.cssLoginButton}
                             onClick={() => this.doLogin()}
                         >
-                            Login
+                            {this.state.status.sending ? this.renderSpinner() : 'Login'}
                         </Button>
                         <Typography className={classes.footerText} color="textSecondary">
                             From Zangles to Anako (again) © 2019

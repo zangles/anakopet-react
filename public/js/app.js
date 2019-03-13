@@ -2231,6 +2231,307 @@ var _ButtonBase = _interopRequireDefault(__webpack_require__(/*! ./ButtonBase */
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/CircularProgress/CircularProgress.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/CircularProgress/CircularProgress.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js"));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js"));
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _utils = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/index.es.js");
+
+var _withStyles = _interopRequireDefault(__webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/styles/withStyles.js"));
+
+var _helpers = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/utils/helpers.js");
+
+var SIZE = 44;
+
+function getRelativeValue(value, min, max) {
+  var clampedValue = Math.min(Math.max(min, value), max);
+  return (clampedValue - min) / (max - min);
+}
+
+function easeOut(t) {
+  t = getRelativeValue(t, 0, 1); // https://gist.github.com/gre/1650294
+
+  t = (t -= 1) * t * t + 1;
+  return t;
+}
+
+function easeIn(t) {
+  return t * t;
+}
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'inline-block',
+      lineHeight: 1 // Keep the progress centered
+
+    },
+
+    /* Styles applied to the root element if `variant="static"`. */
+    static: {
+      transition: theme.transitions.create('transform')
+    },
+
+    /* Styles applied to the root element if `variant="indeterminate"`. */
+    indeterminate: {
+      animation: 'mui-progress-circular-rotate 1.4s linear infinite',
+      // Backward compatible logic between JSS v9 and v10.
+      // To remove with the release of Material-UI v4
+      animationName: '$mui-progress-circular-rotate'
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      color: theme.palette.primary.main
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      color: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the `svg` element. */
+    svg: {},
+
+    /* Styles applied to the `circle` svg path. */
+    circle: {
+      stroke: 'currentColor' // Use butt to follow the specification, by chance, it's already the default CSS value.
+      // strokeLinecap: 'butt',
+
+    },
+
+    /* Styles applied to the `circle` svg path if `variant="static"`. */
+    circleStatic: {
+      transition: theme.transitions.create('stroke-dashoffset')
+    },
+
+    /* Styles applied to the `circle` svg path if `variant="indeterminate"`. */
+    circleIndeterminate: {
+      animation: 'mui-progress-circular-dash 1.4s ease-in-out infinite',
+      // Backward compatible logic between JSS v9 and v10.
+      // To remove with the release of Material-UI v4
+      animationName: '$mui-progress-circular-dash',
+      // Some default value that looks fine waiting for the animation to kicks in.
+      strokeDasharray: '80px, 200px',
+      strokeDashoffset: '0px' // Add the unit to fix a Edge 16 and below bug.
+
+    },
+    '@keyframes mui-progress-circular-rotate': {
+      '100%': {
+        transform: 'rotate(360deg)'
+      }
+    },
+    '@keyframes mui-progress-circular-dash': {
+      '0%': {
+        strokeDasharray: '1px, 200px',
+        strokeDashoffset: '0px'
+      },
+      '50%': {
+        strokeDasharray: '100px, 200px',
+        strokeDashoffset: '-15px'
+      },
+      '100%': {
+        strokeDasharray: '100px, 200px',
+        strokeDashoffset: '-125px'
+      }
+    },
+
+    /* Styles applied to the `circle` svg path if `disableShrink={true}`. */
+    circleDisableShrink: {
+      animation: 'none'
+    }
+  };
+};
+/**
+ * ## ARIA
+ *
+ * If the progress bar is describing the loading progress of a particular region of a page,
+ * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+ * attribute to `true` on that region until it has finished loading.
+ */
+
+
+exports.styles = styles;
+
+function CircularProgress(props) {
+  var _classNames, _classNames2;
+
+  var classes = props.classes,
+      className = props.className,
+      color = props.color,
+      disableShrink = props.disableShrink,
+      size = props.size,
+      style = props.style,
+      thickness = props.thickness,
+      value = props.value,
+      variant = props.variant,
+      other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "color", "disableShrink", "size", "style", "thickness", "value", "variant"]);
+  var circleStyle = {};
+  var rootStyle = {};
+  var rootProps = {};
+
+  if (variant === 'determinate' || variant === 'static') {
+    var circumference = 2 * Math.PI * ((SIZE - thickness) / 2);
+    circleStyle.strokeDasharray = circumference.toFixed(3);
+    rootProps['aria-valuenow'] = Math.round(value);
+
+    if (variant === 'static') {
+      circleStyle.strokeDashoffset = "".concat(((100 - value) / 100 * circumference).toFixed(3), "px");
+      rootStyle.transform = 'rotate(-90deg)';
+    } else {
+      circleStyle.strokeDashoffset = "".concat((easeIn((100 - value) / 100) * circumference).toFixed(3), "px");
+      rootStyle.transform = "rotate(".concat((easeOut(value / 70) * 270).toFixed(3), "deg)");
+    }
+  }
+
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes["color".concat((0, _helpers.capitalize)(color))], color !== 'inherit'), (0, _defineProperty2.default)(_classNames, classes.indeterminate, variant === 'indeterminate'), (0, _defineProperty2.default)(_classNames, classes.static, variant === 'static'), _classNames), className),
+    style: (0, _extends2.default)({
+      width: size,
+      height: size
+    }, rootStyle, style),
+    role: "progressbar"
+  }, rootProps, other), _react.default.createElement("svg", {
+    className: classes.svg,
+    viewBox: "".concat(SIZE / 2, " ").concat(SIZE / 2, " ").concat(SIZE, " ").concat(SIZE)
+  }, _react.default.createElement("circle", {
+    className: (0, _classnames.default)(classes.circle, (_classNames2 = {}, (0, _defineProperty2.default)(_classNames2, classes.circleIndeterminate, variant === 'indeterminate'), (0, _defineProperty2.default)(_classNames2, classes.circleStatic, variant === 'static'), (0, _defineProperty2.default)(_classNames2, classes.circleDisableShrink, disableShrink), _classNames2)),
+    style: circleStyle,
+    cx: SIZE,
+    cy: SIZE,
+    r: (SIZE - thickness) / 2,
+    fill: "none",
+    strokeWidth: thickness
+  })));
+}
+
+ true ? CircularProgress.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: _propTypes.default.oneOf(['primary', 'secondary', 'inherit']),
+
+  /**
+   * If `true`, the shrink animation is disabled.
+   * This only works if variant is `indeterminate`.
+   */
+  disableShrink: (0, _utils.chainPropTypes)(_propTypes.default.bool, function (props) {
+    /* istanbul ignore if */
+    if (props.disableShrink && props.variant !== 'indeterminate') {
+      return new Error('Material-UI: you have provided the `disableShrink` property ' + 'with a variant other than `indeterminate`. This will have no effect.');
+    }
+
+    return null;
+  }),
+
+  /**
+   * The size of the circle.
+   */
+  size: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+
+  /**
+   * @ignore
+   */
+  style: _propTypes.default.object,
+
+  /**
+   * The thickness of the circle.
+   */
+  thickness: _propTypes.default.number,
+
+  /**
+   * The value of the progress indicator for the determinate and static variants.
+   * Value between 0 and 100.
+   */
+  value: _propTypes.default.number,
+
+  /**
+   * The variant to use.
+   * Use indeterminate when there is no progress value.
+   */
+  variant: _propTypes.default.oneOf(['determinate', 'indeterminate', 'static'])
+} : undefined;
+CircularProgress.defaultProps = {
+  color: 'primary',
+  disableShrink: false,
+  size: 40,
+  thickness: 3.6,
+  value: 0,
+  variant: 'indeterminate'
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiCircularProgress',
+  flip: false
+})(CircularProgress);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/CircularProgress/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/CircularProgress/index.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _CircularProgress.default;
+  }
+});
+
+var _CircularProgress = _interopRequireDefault(__webpack_require__(/*! ./CircularProgress */ "./node_modules/@material-ui/core/CircularProgress/CircularProgress.js"));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/FormControl/FormControl.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/FormControl/FormControl.js ***!
@@ -77523,10 +77824,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/colors/orange */ "./node_modules/@material-ui/core/colors/orange.js");
 /* harmony import */ var _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../img/logo.png */ "./resources/img/logo.png");
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_img_logo_png__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../config */ "./resources/js/config.jsx");
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/colors/red */ "./node_modules/@material-ui/core/colors/red.js");
+/* harmony import */ var _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/CircularProgress/index.js");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../img/logo.png */ "./resources/img/logo.png");
+/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_img_logo_png__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../config */ "./resources/js/config.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -77559,8 +77868,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var styles = function styles(theme) {
   return {
+    spinner: {
+      color: 'white'
+    },
     container: {
       height: '100%'
     },
@@ -77588,17 +77902,17 @@ var styles = function styles(theme) {
     },
     cssLabelPass: {
       '&$cssFocusedPass': {
-        color: _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default.a[500]
+        color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
       }
     },
     cssUnderlinePass: {
       '&:after': {
-        borderBottomColor: _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default.a[500]
+        borderBottomColor: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
       }
     },
     cssFocusedPass: {},
     passInput: {
-      color: _material_ui_core_colors_orange__WEBPACK_IMPORTED_MODULE_11___default.a[500]
+      color: _material_ui_core_colors_red__WEBPACK_IMPORTED_MODULE_12___default.a['A200']
     },
     cssLoginButton: {
       marginTop: '30px',
@@ -77619,14 +77933,28 @@ var styles = function styles(theme) {
       marginRight: theme.spacing.unit,
       width: '200px'
     },
+    formControl: {
+      marginTop: '15px'
+    },
     paper: {
       padding: theme.spacing.unit * 2,
       textAlign: 'center',
       color: theme.palette.text.secondary,
       width: '300px'
     },
-    formControl: {
-      marginTop: '15px'
+    error: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: '300px',
+      boxShadow: '0px 1px 20px 0px rgba(228, 7, 7, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)'
+    },
+    success: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      width: '300px',
+      boxShadow: '0px 1px 20px 3px rgba(5, 136, 4, 0.97), 0px 2px 0px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);'
     }
   };
 };
@@ -77657,21 +77985,43 @@ function (_Component) {
 
     _this.state = {
       userName: '',
-      password: ''
+      password: '',
+      status: {
+        sending: false,
+        success: false,
+        error: false
+      }
     };
     return _this;
   }
 
   _createClass(Login, [{
+    key: "renderSpinner",
+    value: function renderSpinner() {
+      var classes = this.props.classes;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13___default.a, {
+        className: classes.spinner,
+        size: 16
+      }));
+    }
+  }, {
     key: "doLogin",
     value: function doLogin() {
-      return fetch(_config__WEBPACK_IMPORTED_MODULE_13__["API_HOST"] + '/oauth/token', {
+      var _this2 = this;
+
+      this.setState({
+        status: _objectSpread({}, this.state.status, {
+          error: false,
+          sending: true
+        })
+      });
+      return fetch(_config__WEBPACK_IMPORTED_MODULE_15__["API_HOST"] + '/oauth/token', {
         method: 'POST',
         body: JSON.stringify({
           username: this.state.userName,
           password: this.state.password,
-          client_id: _config__WEBPACK_IMPORTED_MODULE_13__["CLIENT_ID"],
-          client_secret: _config__WEBPACK_IMPORTED_MODULE_13__["CLIENT_SECRET"],
+          client_id: _config__WEBPACK_IMPORTED_MODULE_15__["CLIENT_ID"],
+          client_secret: _config__WEBPACK_IMPORTED_MODULE_15__["CLIENT_SECRET"],
           grant_type: 'password'
         }),
         headers: {
@@ -77691,16 +78041,38 @@ function (_Component) {
         var accessToken = json['access_token'];
         var refreshToken = json['refresh_token'];
         console.log(tokenType, accessToken, refreshToken); // dispatch(loginSuccessful(tokenType, accessToken, refreshToken));
+
+        _this2.setState({
+          status: _objectSpread({}, _this2.state.status, {
+            success: true,
+            sending: false
+          })
+        });
       }).catch(function (err) {
-        dispatch(loginFailed(err));
+        _this2.setState({
+          status: _objectSpread({}, _this2.state.status, {
+            error: true,
+            sending: false
+          })
+        });
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var classes = this.props.classes;
+      var paperClass = classes.paper;
+
+      if (this.state.status.error) {
+        paperClass = classes.error;
+      }
+
+      if (this.state.status.success) {
+        paperClass = classes.success;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default.a, {
         container: true,
         direction: "row",
@@ -77708,9 +78080,9 @@ function (_Component) {
         alignItems: "center",
         className: classes.container
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        className: classes.paper
+        className: paperClass
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _img_logo_png__WEBPACK_IMPORTED_MODULE_12___default.a,
+        src: _img_logo_png__WEBPACK_IMPORTED_MODULE_14___default.a,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: classes.title
@@ -77753,9 +78125,9 @@ function (_Component) {
         color: "primary",
         className: classes.cssLoginButton,
         onClick: function onClick() {
-          return _this2.doLogin();
+          return _this3.doLogin();
         }
-      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      }, this.state.status.sending ? this.renderSpinner() : 'Login'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
         className: classes.footerText,
         color: "textSecondary"
       }, "From Zangles to Anako (again) \xA9 2019"))));
