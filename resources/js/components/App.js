@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import Layout from './layout'
+import { Provider } from 'react-redux';
+import Storage from '../util/Storage'
+import { reduxStore } from '../reduxStore'
 
-export default class App extends Component {
-    render() {
-        return (
+export const reactApp = () => {
+    let s = new Storage('app');
+
+    const initialState = window.__PRELOADED_STATE__ || {
+        login: {
+            ...s.get('data')
+        }
+    };
+
+    const store = reduxStore(initialState);
+
+    return (
+        <Provider store={store}>
             <Layout />
-        );
-    }
-}
+        </Provider>
+    );
+};
 
-if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
-}
+render(reactApp(), document.getElementById('app'));

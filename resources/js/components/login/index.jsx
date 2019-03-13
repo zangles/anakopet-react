@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 import {withStyles} from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+
+import '../../../config';
+
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,12 +12,15 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Icon from '@material-ui/core/Icon';
 
 import logo from '../../../img/logo.png'
 
-import {API_HOST, CLIENT_ID, CLIENT_SECRET} from '../../config';
+import { CLIENT_ID, CLIENT_SECRET} from '../../config';
 import {styles} from './styles'
+
+import { loginSuccessful } from '../../actions/login'
+
+export const API_HOST = (typeof window !== "undefined" && window.__CONFIG__ ? window.__CONFIG__.apiHost : global.__CONFIG__.apiHost);
 
 class Login extends Component {
 
@@ -56,12 +63,6 @@ class Login extends Component {
         );
     }
 
-    renderFingerPrintIcon() {
-        return (
-            <Icon>fingerprint</Icon>
-        )
-    }
-
     doLogin() {
         this.setState({status: {...this.state.status, error: false, sending: true}});
 
@@ -90,9 +91,8 @@ class Login extends Component {
                 let tokenType = json['token_type'];
                 let accessToken = json['access_token'];
                 let refreshToken = json['refresh_token'];
-                console.log(tokenType, accessToken, refreshToken);
-                // dispatch(loginSuccessful(tokenType, accessToken, refreshToken));
                 this.setState({status: {...this.state.status, success: true, sending: false}})
+                this.props.login(tokenType, accessToken, refreshToken)
             })
             .catch((err) => {
                 console.log(err);
@@ -121,7 +121,7 @@ class Login extends Component {
                 <Paper className={paperClass}>
                     <img src={logo} alt=""/>
                     <br/>
-                    <span className={classes.title}>Welcome to AnaKo Petsit</span>
+                    <span className={classes.title}>Welcome to Cork Petsit</span>
                     <form
                         className="classes.form"
                         autoComplete='off'
@@ -175,8 +175,7 @@ class Login extends Component {
                             className={classes.cssLoginButton}
                             onClick={() => this.doLogin()}
                         >
-                            {this.state.status.sending ? this.renderSpinner() : this.renderFingerPrintIcon()}
-
+                            {this.state.status.sending ? this.renderSpinner() : 'Login'}
                         </Button>
                         <Typography className={classes.footerText} color="textSecondary">
                             From Zangles to Anako (again) © 2019
@@ -189,4 +188,20 @@ class Login extends Component {
     }
 }
 
-export default withStyles(styles)(Login)
+const mapStateToProps = (globalState) => {
+    return {
+        username: globalState.login.username,
+        password: globalState.login.password,
+        authToken: globalState.login.authToken,
+        error: globalState.login.error,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (tokenType, accessToken, refreshToken) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login));
+
