@@ -51,7 +51,8 @@ export const styles = theme => ({
     cssLoginButton: {
         marginTop: '30px',
         width: '200px',
-        color: theme.palette.getContrastText(cyan[500]),
+        // color: theme.palette.getContrastText(cyan[500]),
+        color: 'white',
         backgroundColor: cyan[500],
         '&:hover': {
             backgroundColor: cyan[700],
