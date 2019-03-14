@@ -9,16 +9,27 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Hidden from '@material-ui/core/Hidden';
 
 import { styles } from './styles'
 import { logout } from "../../actions/login";
+import PropTypes from "prop-types";
 
 class Navbar extends Component {
+
+    static propTypes = {
+        handleDrawerToggle: PropTypes.func.isRequired
+    };
 
     state = {
         auth: true,
         anchorEl: null,
+        mobileOpen: false,
     };
+
+    constructor(props) {
+        super(props);
+    }
 
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
@@ -29,7 +40,7 @@ class Navbar extends Component {
     };
 
     render () {
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
         const { auth, anchorEl } = this.state;
         const open = Boolean(anchorEl);
 
@@ -43,9 +54,11 @@ class Navbar extends Component {
                     }}
                 >
                     <Toolbar>
-                        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                            <MenuIcon />
-                        </IconButton>
+                        <Hidden mdUp implementation="css">
+                            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                                <MenuIcon onClick={() => this.props.handleDrawerToggle()}/>
+                            </IconButton>
+                        </Hidden>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Dashboard
                         </Typography>
@@ -97,5 +110,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Navbar));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(Navbar));
 

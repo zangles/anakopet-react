@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Login from '../login'
 import {connect} from "react-redux";
 import Dashboard from "../dashboard";
+import Contact from '../contact';
 import ls from 'local-storage';
 import AppLayout from '../appLayout'
 
@@ -37,6 +38,8 @@ class Layout extends Component {
                 return (<Dashboard />);
             case 'dashboard':
                 return (<Dashboard />);
+            case 'contact':
+                return (<Contact />);
             default:
                 return (<div>No '{this.props.view}' view</div>);
         }

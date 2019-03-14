@@ -1,14 +1,18 @@
-import blue from "@material-ui/core/es/colors/blue";
+
+const drawerWidth = 240;
 
 export const styles = theme => ({
     root: {
         flexGrow: 1,
         top: 0,
         position: 'absolute',
-        width: '90%'
+        width: '100%',
     },
     appBar: {
-        backgroundColor: blue[400]
+        [theme.breakpoints.up('md')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+            marginLeft: drawerWidth,
+        },
     },
     grow: {
         flexGrow: 1,
@@ -16,5 +20,6 @@ export const styles = theme => ({
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
+        zIndex: 2,
     },
 });
