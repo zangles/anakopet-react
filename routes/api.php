@@ -13,11 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::middleware([])->get('/user2', function (Request $request) {
-    $users = \App\User::all();
-    return response()->json($users);
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::apiResources([
+        'contacts' => 'ContactController',
+    ]);
 });

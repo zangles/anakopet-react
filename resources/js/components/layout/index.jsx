@@ -23,7 +23,15 @@ class Layout extends Component {
 
     renderBody () {
         let authToken = ls.get('authToken');
+        let expire = ls.get('expire');
+        let secondsNow = new Date().getTime() / 1000;
         // ls.remove('authToken');
+
+        if (authToken !== null && secondsNow > expire ) {
+            ls.remove('authToken');
+            ls.remove('expire');
+            authToken = null
+        }
 
         if (authToken === null) {
             return (<Login />)

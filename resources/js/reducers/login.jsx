@@ -31,11 +31,13 @@ const loginReducer = (state = initialState, action) => {
     return ({
         LOGIN_SUCCESSFUL: () => {
             ls.set('authToken', action.authToken);
+            ls.set('expire', action.expire)
 
             return updateState({
                 authToken: action.authToken,
                 accessToken: action.accessToken,
                 refreshToken: action.refreshToken,
+                expire: action.expire,
             });
         },
 
@@ -52,11 +54,13 @@ const loginReducer = (state = initialState, action) => {
 
         LOGOUT: () => {
             ls.remove('authToken');
+            ls.remove('expire');
 
             return updateState({
                 authToken: '',
                 accessToken: '',
                 refreshToken: '',
+                expire: '',
             })
         }
 

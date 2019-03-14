@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {withStyles} from "@material-ui/core";
-import {styles} from "./styles";
 import { BarChart } from 'reaviz';
+import {styles} from "./styles";
 
 class Dashboard extends Component {
 
     render () {
         const {classes} = this.props;
         let paperClass = classes.paper;
+
 
         const data = [
             { key: 'IDS', data: 14 },

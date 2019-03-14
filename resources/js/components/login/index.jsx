@@ -92,8 +92,12 @@ class Login extends Component {
                 let tokenType = json['token_type'];
                 let accessToken = json['access_token'];
                 let refreshToken = json['refresh_token'];
+                let expireIn = json['expires_in'];
+                let seconds = new Date().getTime() / 1000;
+                let expire = seconds+expireIn;
+
                 this.setState({status: {...this.state.status, success: true, sending: false}});
-                this.props.login(tokenType, accessToken, refreshToken);
+                this.props.login(tokenType, accessToken, refreshToken, expire);
                 this.props.changeView('dashboard');
             })
             .catch((err) => {
@@ -201,7 +205,7 @@ const mapStateToProps = (globalState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (tokenType, accessToken, refreshToken) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken)),
+        login: (tokenType, accessToken, refreshToken, expire) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken, expire)),
         changeView: (view) => dispatch(changeView(view))
     }
 };

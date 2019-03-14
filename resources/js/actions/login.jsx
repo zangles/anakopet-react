@@ -8,7 +8,7 @@ export const updateLoginField = (field, value) => {
     }
 };
 
-export const loginSuccessful = (tokenType, accessToken, refreshToken) => {
+export const loginSuccessful = (tokenType, accessToken, refreshToken, expire) => {
     return (dispatch) => {
         const authToken = tokenType + " " + accessToken;
 
@@ -17,6 +17,7 @@ export const loginSuccessful = (tokenType, accessToken, refreshToken) => {
             tokenType,
             accessToken,
             refreshToken,
+            expire,
             authToken: tokenType + " " + accessToken,
         });
 
