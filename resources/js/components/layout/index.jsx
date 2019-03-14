@@ -46,7 +46,7 @@ class Layout extends Component {
                 return (<Dashboard />);
             case 'dashboard':
                 return (<Dashboard />);
-            case 'contact':
+            case 'contacts':
                 return (<Contact />);
             default:
                 return (<div>No '{this.props.view}' view</div>);

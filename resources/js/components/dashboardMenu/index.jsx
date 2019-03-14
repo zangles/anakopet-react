@@ -58,12 +58,12 @@ class DashboardMenu extends Component {
                         <ListItemText primary={'Dashboard'} />
                     </ListItem>
                     <ListItem
-                        button key={'Contact'}
-                        selected={this.props.view === 'contact'}
-                        onClick={() => this.changeView('contact')}
+                        button key={'Contacts'}
+                        selected={this.props.view === 'contacts'}
+                        onClick={() => this.changeView('contacts')}
                     >
                         <ListItemIcon><PeopleIcon /></ListItemIcon>
-                        <ListItemText primary={'Contact'} />
+                        <ListItemText primary={'Contacts'} />
                     </ListItem>
                     <ListItem button key={'Turns'}>
                         <ListItemIcon><CalendarIcon /></ListItemIcon>

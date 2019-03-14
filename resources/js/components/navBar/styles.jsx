@@ -16,6 +16,7 @@ export const styles = theme => ({
     },
     grow: {
         flexGrow: 1,
+        textTransform: 'capitalize'
     },
     menuButton: {
         marginLeft: -12,

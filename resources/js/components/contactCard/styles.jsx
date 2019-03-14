@@ -1,3 +1,6 @@
+import Blue from '@material-ui/core/colors/blue';
+import Red from '@material-ui/core/colors/red';
+
 
 export const styles = theme => ({
     card: {
@@ -18,4 +21,12 @@ export const styles = theme => ({
     pos: {
         marginBottom: 12,
     },
+    maleIcon: {
+        color: Blue[600],
+        fontSize: '16px'
+    },
+    femaleIcon: {
+        color: Red[400],
+        fontSize: '16px'
+    }
 });

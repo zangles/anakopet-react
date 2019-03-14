@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f465451-6793-413c-b003-52eff8d840fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PetController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/PetResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Pet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/PetFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_03_14_192307_create_pets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/contactCard/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/loading/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/loading/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc94e75-6916-433e-9194-102f45310e59.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbc94e75-6916-433e-9194-102f45310e59.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ContactResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ContactResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/actions/view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/actions/view.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/appLayout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/appLayout/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/contact/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/contact/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/dashboardMenu/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/dashboardMenu/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/main/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/main/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/main/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/reducers/view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/reducers/view.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/contactCard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/contactCard/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/navBar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/navBar/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/navBar/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/navBar/styles.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,10 +64,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/contact/index.jsx">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+            <state relative-caret-position="384">
+              <caret line="79" column="16" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -88,19 +76,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/main/styles.jsx">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/contact/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/contactCard/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="278">
+              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -109,10 +88,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/layout/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="415">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/pets">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/contacts">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -121,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isLogin</find>
       <find>Login</find>
       <find>theme</find>
       <find>hide</find>
@@ -151,6 +150,7 @@
       <find>container</find>
       <find>CalendarIcon</find>
       <find>Import Grid</find>
+      <find>changeview</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources/js/components</dir>
@@ -180,9 +180,6 @@
         <option value="$PROJECT_DIR$/resources/js/components/dashboard/styles.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/menu/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/navBar/index.js" />
-        <option value="$PROJECT_DIR$/resources/js/components/navBar/index.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/navBar/styles.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_14_172709_create_contacts_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" />
@@ -191,13 +188,11 @@
         <option value="$PROJECT_DIR$/resources/js/components/dashboard/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/actions/login.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/login/index.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/layout/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/reducers/login.jsx" />
         <option value="$PROJECT_DIR$/resources/js/actions/apiService.jsx" />
         <option value="$PROJECT_DIR$/app/Pet.php" />
         <option value="$PROJECT_DIR$/app/Contact.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_14_192307_create_pets_table.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/app/Http/Resources/PetResource.php" />
         <option value="$PROJECT_DIR$/resources/js/components/appLayout/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/dashboardMenu/styles.jsx" />
@@ -209,10 +204,15 @@
         <option value="$PROJECT_DIR$/resources/js/components/loading/styles.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/loading/index.jsx" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ContactResource.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/main/styles.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/contactCard/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/resources/js/components/navBar/index.jsx" />
+        <option value="$PROJECT_DIR$/resources/js/components/navBar/styles.jsx" />
+        <option value="$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx" />
+        <option value="$PROJECT_DIR$/resources/js/components/layout/index.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/contact/index.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/main/styles.jsx" />
       </list>
     </option>
   </component>
@@ -380,7 +380,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="contactCard" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboardMenu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anakopet-react" type="b2602c69:ProjectViewProjectNode" />
@@ -388,15 +388,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="loading" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anakopet-react" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anakopet-react" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -567,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552591304080</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="contacts cards">
+      <created>1552597758604</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1552597758604</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -666,7 +665,8 @@
     <MESSAGE value="menu" />
     <MESSAGE value="charts" />
     <MESSAGE value="best login and api call" />
-    <option name="LAST_COMMIT_MESSAGE" value="best login and api call" />
+    <MESSAGE value="contacts cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="contacts cards" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/config.jsx">
@@ -712,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/navBar/styles.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/0.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -733,13 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/contacts">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -805,16 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="21" column="46" selection-start-line="21" selection-end-line="21" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/actions/login.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -826,13 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/pets">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -905,16 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/navBar/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="110" column="2" lean-forward="true" selection-start-line="110" selection-start-column="2" selection-end-line="110" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/reducers/view.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
@@ -973,16 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/layout/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/loading/styles.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1014,37 +963,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/contactCard/index.jsx">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/main/styles.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/contactCard/styles.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="150">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/contact/index.jsx">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/contactCard/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+        <state relative-caret-position="154">
+          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/main/styles.jsx">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/navBar/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="390">
+          <caret line="62" column="45" lean-forward="true" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/navBar/styles.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/layout/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/pets">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cbc94e75-6916-433e-9194-102f45310e59/schema/anakopet-react/table/contacts">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/dashboardMenu/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="79" column="16" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/contact/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

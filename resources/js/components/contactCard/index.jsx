@@ -49,7 +49,12 @@ class ContactCard extends Component {
                     <Typography component="p">
                         <br/>
                         {this.props.contact.pets.map(function(pet, index){
-                            return (<div key={index} ><PetIcon className={classes.icons} /> {pet.name}</div>);
+                            let sexClass = (pet.sex === 'M') ? classes.maleIcon : classes.femaleIcon
+                            return (
+                                <div key={index} >
+                                    <PetIcon className={sexClass} /> {pet.name}
+                                </div>
+                            );
                         })}
                     </Typography>
                 </CardContent>

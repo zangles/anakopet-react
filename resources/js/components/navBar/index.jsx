@@ -60,7 +60,7 @@ class Navbar extends Component {
                             </IconButton>
                         </Hidden>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
-                            Dashboard
+                            {this.props.view}
                         </Typography>
                         {auth && (
                             <div>
@@ -101,6 +101,7 @@ class Navbar extends Component {
 const mapStateToProps = (globalState) => {
     return {
         authToken: globalState.login.authToken,
+        view: globalState.view.actualView
     }
 };
 

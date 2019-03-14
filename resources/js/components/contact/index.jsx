@@ -33,7 +33,20 @@ class Contact extends Component {
                 alignItems="flex-start"
             >
                 {this.state.contacts.map(function(contact, index){
-                    return <Grid item lg={4} md={6} sm={6} xs={12}><ContactCard contact={contact} id={index} /></Grid>;
+                    return (
+                        <Grid
+                            item
+                            lg={4}
+                            md={6}
+                            sm={6}
+                            xs={12}
+                        >
+                            <ContactCard
+                                contact={contact}
+                                id={index}
+                            />
+                        </Grid>
+                    );
                 })}
             </Grid>
         )
