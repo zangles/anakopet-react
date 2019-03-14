@@ -26,11 +26,15 @@ class ContactCard extends Component {
         super(props);
     }
 
+    handleContactCardClick (id) {
+        console.log(id);
+    }
+
     render () {
         const { classes } = this.props;
 
         return (
-            <Card className={classes.card}>
+            <Card className={classes.card} onClick={() => this.handleContactCardClick(this.props.contact.id)}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         {this.props.contact.name}

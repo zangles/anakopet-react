@@ -69,6 +69,7 @@ class Navbar extends Component {
                                     aria-haspopup="true"
                                     onClick={this.handleMenu}
                                     color="inherit"
+                                    className={classes.menuButton}
                                 >
                                     <AccountCircle />
                                 </IconButton>

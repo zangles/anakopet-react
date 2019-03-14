@@ -3,6 +3,10 @@ import {connect} from "react-redux";
 import {withStyles} from "@material-ui/core";
 import { BarChart } from 'reaviz';
 import {styles} from "./styles";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 class Dashboard extends Component {
 
@@ -12,15 +16,21 @@ class Dashboard extends Component {
 
 
         const data = [
-            { key: 'IDS', data: 14 },
-            { key: 'Malware', data: 5 },
-            { key: 'DLP', data: 18 }
+            { key: 'Enero', data: 14 },
+            { key: 'Febrero', data: 5 },
+            { key: 'Marzo', data: 18 }
         ];
 
         return (
             <div>
-                Dashboard content
-                <BarChart width={350} height={250} data={data} />
+                <Card className={classes.card} >
+                    <CardContent>
+                        <Typography variant="h5" component="h2">
+                            Cantidad De turnos por mes
+                        </Typography>
+                        <BarChart width={350} height={250} data={data} />
+                    </CardContent>
+                </Card>
             </div>
         )
     }
