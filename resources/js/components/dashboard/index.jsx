@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {withStyles} from "@material-ui/core";
 import {styles} from "./styles";
+import { BarChart } from 'reaviz';
 
 class Dashboard extends Component {
 
@@ -9,8 +10,17 @@ class Dashboard extends Component {
         const {classes} = this.props;
         let paperClass = classes.paper;
 
+        const data = [
+            { key: 'IDS', data: 14 },
+            { key: 'Malware', data: 5 },
+            { key: 'DLP', data: 18 }
+        ];
+
         return (
-            <div>Dashboard content</div>
+            <div>
+                Dashboard content
+                <BarChart width={350} height={250} data={data} />
+            </div>
         )
     }
 
