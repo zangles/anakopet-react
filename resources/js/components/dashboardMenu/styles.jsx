@@ -11,7 +11,7 @@ export const styles = theme => ({
     drawerPaper: {
         width: drawerWidth,
         position: 'absolute',
-        height: '500px'
+        height: '100%'
     },
     logo: {
         maxHeight: '60px',

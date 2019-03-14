@@ -22,6 +22,6 @@ class Contact extends Model
 
     public function pet()
     {
-//        return $this->hasMany('App\Pet');
+        return $this->hasMany('App\Pet');
     }
 }

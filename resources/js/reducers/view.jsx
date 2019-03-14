@@ -1,10 +1,13 @@
 import {
     CHANGE_VIEW,
+    START_LOADING,
+    STOP_LOADING
 } from '../actions/view.jsx';
 
 const initialState = {
     actualView: undefined,
     previousView: undefined,
+    loading: undefined,
 };
 
 const viewReducer = (state = initialState, action) => {
@@ -20,6 +23,11 @@ const viewReducer = (state = initialState, action) => {
                 actualView: action.view,
             });
         },
+        LOADING: () => {
+            return updateState({
+                loading: action.loading,
+            });
+        }
 
     }[action.type] || (() => state))();
 

@@ -7,7 +7,7 @@ import Main from '../main';
 
 const styles = theme => ({
     root: {
-        backgroundColor: 'white',
+        backgroundColor: '#DADADA',
         width: '100%',
         position: 'relative',
         [theme.breakpoints.up('md')]: {

@@ -17,9 +17,11 @@ class ContactResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'email' => $this->email,
             'address' => $this->address,
             'phone' => $this->phone,
-            'description' => $this->description
+            'description' => $this->description,
+            'pets' => PetResource::collection($this->pet)
         ];
     }
 }
