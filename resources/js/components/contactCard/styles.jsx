@@ -6,7 +6,7 @@ export const styles = theme => ({
     card: {
         width: '250px',
         marginBottom: '15px',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     icons: {
         fontSize: '16px'

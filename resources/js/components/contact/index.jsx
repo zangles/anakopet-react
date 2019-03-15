@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import {styles} from "./styles";
 import ContactCard from "../contactCard";
 import { startLoading, stopLoading } from "../../actions/view";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add'
 
 class Contact extends Component {
 
@@ -25,30 +27,39 @@ class Contact extends Component {
     }
 
     render () {
+        const { classes } = this.props;
         return (
-            <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="flex-start"
-            >
-                {this.state.contacts.map(function(contact, index){
-                    return (
-                        <Grid
-                            item
-                            lg={4}
-                            md={6}
-                            sm={6}
-                            xs={12}
-                        >
-                            <ContactCard
-                                contact={contact}
-                                id={index}
-                            />
-                        </Grid>
-                    );
-                })}
-            </Grid>
+            <div>
+                <Grid
+                    container
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="flex-start"
+                >
+                    {this.state.contacts.map(function(contact, index){
+                        return (
+                            <Grid
+                                item
+                                lg={4}
+                                md={6}
+                                sm={6}
+                                xs={12}
+                            >
+                                <ContactCard
+                                    contact={contact}
+                                    id={index}
+                                />
+                            </Grid>
+                        );
+                    })}
+
+                </Grid>
+                <div className={classes.fabContainer}>
+                    <Fab className={classes.fab} color='primary'>
+                        <AddIcon />
+                    </Fab>
+                </div>
+            </div>
         )
     }
 }

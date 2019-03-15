@@ -7,8 +7,10 @@ export const styles = theme => ({
         width: '100%',
         backgroundColor: 'rgba(0,0,0,0.5)',
         position: 'absolute',
-        top: `49px`,
-        left: `0px`
+        top: `0px`,
+        left: `0px`,
+        zIndex: '999'
+
     },
     container: {
         height: '100%',

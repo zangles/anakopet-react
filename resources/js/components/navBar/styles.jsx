@@ -7,12 +7,14 @@ export const styles = theme => ({
         top: 0,
         position: 'absolute',
         width: '100%',
+        zIndex: 3
     },
     appBar: {
         [theme.breakpoints.up('md')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
+
     },
     grow: {
         flexGrow: 1,
