@@ -50,17 +50,15 @@ class ContactCard extends Component {
                         <br/>
                     </Typography>
                     <Divider />
-                    <Typography component="p">
-                        <br/>
-                        {this.props.contact.pets.map(function(pet, index){
-                            let sexClass = (pet.sex === 'M') ? classes.maleIcon : classes.femaleIcon
-                            return (
-                                <div key={index} >
-                                    <PetIcon className={sexClass} /> {pet.name}
-                                </div>
-                            );
-                        })}
-                    </Typography>
+                    <br/>
+                    {this.props.contact.pets.map(function(pet, index){
+                        let sexClass = (pet.sex === 'M') ? classes.maleIcon : classes.femaleIcon
+                        return (
+                            <div key={index} >
+                                <PetIcon className={sexClass} /> {pet.name}
+                            </div>
+                        );
+                    })}
                 </CardContent>
             </Card>
         )

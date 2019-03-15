@@ -48,6 +48,7 @@ class Contact extends Component {
                                 md={6}
                                 sm={6}
                                 xs={12}
+                                key={index}
                             >
                                 <ContactCard
                                     contact={contact}

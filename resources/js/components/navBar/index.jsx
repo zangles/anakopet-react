@@ -55,8 +55,8 @@ class Navbar extends Component {
                 >
                     <Toolbar>
                         <Hidden mdUp implementation="css">
-                            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                                <MenuIcon onClick={() => this.props.handleDrawerToggle()}/>
+                            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu"  onClick={() => this.props.handleDrawerToggle()}>
+                                <MenuIcon />
                             </IconButton>
                         </Hidden>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
