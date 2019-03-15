@@ -90,7 +90,7 @@ export function apiFetch(getState, endpoint, { isBlob = false, isText = false, m
                 // throw { id: "authError" };
             } else if (response.status === 422) {
                 return response.json().then((json) => {
-                    return JSON.stringify({data: {status: '422', message: json.errors}});
+                    return JSON.stringify({data: {status: '422', message: json}});
                 });
             }
             // throw { id: "defaultError" };

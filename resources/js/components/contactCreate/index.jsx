@@ -16,7 +16,6 @@ import Divider from '@material-ui/core/Divider';
 import {apiPost} from "../../actions/apiService";
 import { withSnackbar } from 'notistack';
 import PropTypes from "prop-types";
-import PetIcon from "../contactCard";
 
 
 class ContactCreate extends Component {
@@ -45,12 +44,19 @@ class ContactCreate extends Component {
     };
 
     handleSubmit () {
+        this.props.startLoading();
         apiPost('api/contacts', {
             body: this.state.formData
         }).then(json => {
+            this.props.stopLoading();
             let response = JSON.parse(json).data;
+            let errors = response.message;
+
+
             if (response.status !== 200) {
-                this.props.enqueueSnackbar(JSON.stringify(response.message), { variant: 'error' });
+                errors.map((message, key) => {
+                    this.props.enqueueSnackbar(JSON.stringify(message), { variant: 'error' });
+                });
             }
         });
     }
