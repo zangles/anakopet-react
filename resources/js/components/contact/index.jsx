@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 import {styles} from "./styles";
 import ContactCard from "../contactCard";
-import { startLoading, stopLoading } from "../../actions/view";
+import {changeView, startLoading, stopLoading} from "../../actions/view";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add'
 
@@ -24,6 +24,10 @@ class Contact extends Component {
                     this.props.stopLoading();
                 })
             })
+    }
+
+    handleCreateContactClick () {
+        this.props.changeView('create contact')
     }
 
     render () {
@@ -54,11 +58,14 @@ class Contact extends Component {
                     })}
 
                 </Grid>
-                <div className={classes.fabContainer}>
-                    <Fab className={classes.fab} color='primary'>
-                        <AddIcon />
-                    </Fab>
-                </div>
+                {this.props.loading ?
+                    <div></div> :
+                    <div className={classes.fabContainer}>
+                        <Fab className={classes.fab} color='primary' onClick={() => this.handleCreateContactClick() }>
+                            <AddIcon />
+                        </Fab>
+                    </div>
+                }
             </div>
         )
     }
@@ -67,6 +74,7 @@ class Contact extends Component {
 const mapStateToProps = (globalState) => {
     return {
         authToken: globalState.login.authToken,
+        loading: globalState.view.loading
     }
 };
 
@@ -74,6 +82,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         startLoading: () => dispatch(startLoading()),
         stopLoading: () => dispatch(stopLoading()),
+        changeView: (view) => dispatch(changeView(view))
     }
 };
 

@@ -4,6 +4,7 @@ import Login from '../login'
 import {connect} from "react-redux";
 import Dashboard from "../dashboard";
 import Contact from '../contact';
+import ContactCreacte from '../contactCreate';
 import ls from 'local-storage';
 import AppLayout from '../appLayout'
 
@@ -48,6 +49,8 @@ class Layout extends Component {
                 return (<Dashboard />);
             case 'contacts':
                 return (<Contact />);
+            case 'create contact':
+                return (<ContactCreacte />);
             default:
                 return (<div>No '{this.props.view}' view</div>);
         }
