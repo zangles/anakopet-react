@@ -17,7 +17,6 @@ import {apiPost} from "../../actions/apiService";
 import { withSnackbar } from 'notistack';
 import PropTypes from "prop-types";
 
-
 class ContactCreate extends Component {
 
     static propTypes = {
@@ -52,10 +51,9 @@ class ContactCreate extends Component {
             let response = JSON.parse(json).data;
             let errors = response.message;
 
-
             if (response.status !== 200) {
                 errors.map((message, key) => {
-                    this.props.enqueueSnackbar(JSON.stringify(message), { variant: 'error' });
+                    this.props.enqueueSnackbar(JSON.stringify(message), { variant: 'error', autoHideDuration: 2000 });
                 });
             }
         });
