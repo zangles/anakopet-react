@@ -53,61 +53,80 @@ export function apiFetch(getState, endpoint, { isBlob = false, isText = false, m
                 if (isText) {
                     return response.text();
                 }
-                return response.json();
+                // return response.json();
+                return response.json().then((json) => {
+                    return JSON.stringify({data: {status: '200', data: json.data}});
+                });
             } else if (response.status == 204) {
                 return {};
             } else if (response.status === 500) {
-                let p = response.json();
-                p.then(json => console.log(json));
-                throw { id: "serverError", jsonResponse: p };
+                return response.json().then((json) => {
+                    return JSON.stringify({data: {status: '500', message: json.errors}});
+                });
+                // let p = response.json();
+                // p.then(json => console.log(json));
+                // throw { id: "serverError", jsonResponse: p };
             } else if (response.status === 400) {
                 return response.json().then((json) => {
-                    throw { id: "invalid fields", messages: json };
+                    return JSON.stringify({data: {status: '400', message: json.errors}});
                 });
+                // return response.json().then((json) => {
+                    // throw { id: "invalid fields", messages: json };
+                // });
             } else if (response.status === 403) {
-                throw { id: "forbidden" };
+                return response.json().then((json) => {
+                    return JSON.stringify({data: {status: '403', message: json.errors}});
+                });
+                // throw { id: "forbidden" };
             } else if (response.status === 404) {
-                throw { id: "notFound" };
+                return response.json().then((json) => {
+                    return JSON.stringify({data: {status: '404', message: json.errors}});
+                });
+                // throw { id: "notFound" };
             } else if (response.status === 401 || response.status === 302) {
-                throw { id: "authError" };
+                return response.json().then((json) => {
+                    return JSON.stringify({data: {status: '302', message: json.errors}});
+                });
+                // throw { id: "authError" };
             } else if (response.status === 422) {
                 return response.json().then((json) => {
-                    throw { id: "validationError", validations: json.errors };
+                    return JSON.stringify({data: {status: '422', message: json.errors}});
                 });
             }
-            throw { id: "defaultError" };
+            // throw { id: "defaultError" };
+            return response.json();
         });
 }
 
-export function apiGet(getState, endpoint, { params, headers } = {}) {
-    return apiFetch(getState, endpoint, { params, headers })
+export function apiGet(endpoint, { params, headers } = {}) {
+    return apiFetch(undefined, endpoint, { params, headers })
 }
 
-export function apiGetBlob(getState, endpoint, { params, headers } = {}) {
-    return apiFetch(getState, endpoint, { isBlob: true, params, headers })
+export function apiGetBlob( endpoint, { params, headers } = {}) {
+    return apiFetch(undefined, endpoint, { isBlob: true, params, headers })
 }
 
-export function apiPost(getState, endpoint, { params, body, headers } = {}) {
-    return apiFetch(getState, endpoint, { method: 'POST', body, params, headers })
+export function apiPost(endpoint, { params, body, headers } = {}) {
+    return apiFetch(undefined, endpoint, { method: 'POST', body, params, headers })
 }
 
-export function apiDelete(getState, endpoint, { params, body, headers } = {}) {
-    return apiFetch(getState, endpoint, { method: 'DELETE', params, headers })
+export function apiDelete( endpoint, { params, body, headers } = {}) {
+    return apiFetch(undefined, endpoint, { method: 'DELETE', params, headers })
 }
 
-export function apiGetAsText(getState, endpoint, { params, headers } = {}) {
-    return apiFetch(getState, endpoint, { isText: true,  params, headers })
+export function apiGetAsText( endpoint, { params, headers } = {}) {
+    return apiFetch(undefined, endpoint, { isText: true,  params, headers })
 }
 
-export function apiPostAsText(getState, endpoint, { params, body, headers } = {}) {
-    return apiFetch(getState, endpoint, { isText: true, method: 'POST', body, params, headers })
+export function apiPostAsText( endpoint, { params, body, headers } = {}) {
+    return apiFetch(undefined, endpoint, { isText: true, method: 'POST', body, params, headers })
 }
 
-export function apiPut(getState, endpoint, { params, body, headers } = {}) {
-    return apiFetch(getState, endpoint, { method: 'PUT', body, params, headers })
+function apiPut( endpoint, { params, body, headers } = {}) {
+    return apiFetch(undefined, endpoint, { method: 'PUT', body, params, headers })
 }
 
-export function apiUpload(getState, endpoint, files, filesField) {
+export function apiUpload( endpoint, files, filesField) {
     return new Promise((resolve, reject) => {
         let data = new FormData();
         for(let file of files) {

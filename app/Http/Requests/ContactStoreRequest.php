@@ -24,7 +24,13 @@ class ContactStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'email' => 'required'
         ];
+    }
+
+    public function response(array $errors)
+    {
+        return response()->json(['error' => $errors]);
     }
 }

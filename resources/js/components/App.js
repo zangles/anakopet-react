@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import Storage from '../util/Storage'
 import { reduxStore } from '../reduxStore'
 
+
 export const reactApp = () => {
     let s = new Storage('app');
 

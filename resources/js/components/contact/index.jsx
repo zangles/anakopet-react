@@ -18,9 +18,9 @@ class Contact extends Component {
 
     componentDidMount() {
         this.props.startLoading();
-        apiGet(this.props.authToken, 'api/contacts')
+        apiGet('api/contacts')
             .then( json => {
-                this.setState({contacts:json.data}, () => {
+                this.setState({contacts:JSON.parse(json).data.data}, () => {
                     this.props.stopLoading();
                 })
             })

@@ -1,11 +1,10 @@
 
 export const styles = theme => ({
-    fabContainer: {
-        position: 'sticky',
-        bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 2,
-        width: '50px',
-        textAlign: 'right',
-        float: 'right',
+    card: {
+        [theme.breakpoints.up('md')]: {
+            width: '50%',
+        },
+        width: '100%',
+        margin: 'auto'
     },
 });

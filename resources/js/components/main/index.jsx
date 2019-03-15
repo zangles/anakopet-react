@@ -3,6 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import {withStyles} from "@material-ui/core";
 import { styles } from './styles'
 import Loading from '../loading'
+import { SnackbarProvider } from 'notistack';
+
 class Main extends Component {
     render () {
         const { classes, theme } = this.props;
@@ -10,7 +12,9 @@ class Main extends Component {
         return (
             <main className={classes.content}>
                 <Loading />
-                {this.props.children}
+                <SnackbarProvider maxSnack={3}>
+                    {this.props.children}
+                </SnackbarProvider>
             </main>
         )
     }
