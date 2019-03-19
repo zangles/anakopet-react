@@ -20,11 +20,8 @@ import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import PersonIcon from '@material-ui/icons/Person';
 import PetsIcon from '@material-ui/icons/Pets';
 import TurnsIcon from '@material-ui/icons/InsertInvitation';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
+import PetCard from '../petCard';
 
 class ContactView extends Component {
 
@@ -151,8 +148,14 @@ class ContactView extends Component {
     }
 
     renderPetsTab () {
+        console.log(this.state.data.pets)
+
         return (
-            <div>pets</div>
+            <div>
+                {this.state.data.pets.map(function(pet) {
+                    return (<PetCard data={pet} />)
+                })}
+            </div>
         )
     }
 
@@ -208,7 +211,7 @@ class ContactView extends Component {
                     onChangeIndex={this.handleChangeIndex}
                 >
                     <TabContainer dir={theme.direction}>{this.renderContactInfoTab()}</TabContainer>
-                    <TabContainer dir={theme.direction}>{this.renderPetsTab()}</TabContainer>
+                    <TabContainer dir={theme.direction}>{this.props.loading ? '' : this.renderPetsTab()}</TabContainer>
                     <TabContainer dir={theme.direction}>{this.renderTurnsTab()}</TabContainer>
                 </SwipeableViews>
                 <div className={classes.fabContainer}>
@@ -236,7 +239,7 @@ class ContactView extends Component {
     }
 
     render () {
-        return (this.props.loading) ? '' : this.renderBody();
+        return (this.state.data.name === '') ? '' : this.renderBody();
     }
 }
 
