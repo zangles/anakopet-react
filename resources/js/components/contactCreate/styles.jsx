@@ -7,4 +7,7 @@ export const styles = theme => ({
         width: '100%',
         margin: 'auto'
     },
+    spinner: {
+        color: 'black'
+    }
 });

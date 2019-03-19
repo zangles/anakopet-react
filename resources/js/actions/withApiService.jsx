@@ -3,12 +3,10 @@ import lodash from "lodash";
 import ls from "local-storage";
 import fetch from "isomorphic-fetch";
 
-import { changeView } from "./view";
-
 export default function withApiService(WrappedComponent) {
     return class extends Component {
         constructor(props) {
-            super(props)
+            super(props);
             this.state = {data: []}
         }
 
@@ -84,27 +82,36 @@ export default function withApiService(WrappedComponent) {
                             this.showError(json)
                         });
                     }
-                    // throw { id: "defaultError" };
                     return response.json();
                 });
         }
 
         showError (json) {
-            json.map((message, key) => {
+            json.map((message) => {
                 this.props.enqueueSnackbar(JSON.stringify(message), { variant: 'error', autoHideDuration: 2000 });
             });
         }
 
         showMessage (json, message, onSuccess) {
-            this.props.enqueueSnackbar(
-                message,
-                {
-                    variant: 'success',
-                    autoHideDuration: 2000,
-                    onClose:
-                        () => { onSuccess() }
+            if (message !== undefined) {
+                this.props.enqueueSnackbar(
+                    message,
+                    {
+                        variant: 'success',
+                        autoHideDuration: 2000,
+                        onClose:
+                            () => {
+                            if (onSuccess !== undefined) {
+                                onSuccess()
+                            }
+                        }
+                    }
+                );
+            } else {
+                if (onSuccess !== undefined) {
+                    onSuccess()
                 }
-            );
+            }
         }
 
         apiGet (endpoint, { params, headers } = {}) {

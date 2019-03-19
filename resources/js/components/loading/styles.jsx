@@ -5,7 +5,7 @@ export const styles = theme => ({
     loadingOverlay: {
         height: `calc(100% + ${mainMargin}px)`,
         width: '100%',
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: 'rgba(0,0,0,0.0)',
         position: 'absolute',
         top: `0px`,
         left: `0px`,

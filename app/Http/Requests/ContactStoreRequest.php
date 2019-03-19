@@ -25,8 +25,7 @@ class ContactStoreRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required'
         ];
     }
 

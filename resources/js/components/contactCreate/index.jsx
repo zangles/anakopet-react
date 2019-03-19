@@ -15,6 +15,7 @@ import { withSnackbar } from 'notistack';
 
 import {styles} from "./styles";
 import Divider from '@material-ui/core/Divider';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class ContactCreate extends Component {
@@ -43,13 +44,39 @@ class ContactCreate extends Component {
 
         this.props.apiPost('api/contacts', {
             body: this.state.formData,
-            message: 'contacto creado',
+            message: 'Contact create success. Redirecting...',
             onSuccess: () => {
                 this.props.changeView('contacts')
             }
         }).then(json => {
             this.props.stopLoading();
         });
+    }
+
+    handleBack () {
+        this.props.changeView('contacts')
+    }
+
+    renderSaveButton () {
+        const { classes } = this.props;
+
+        return (
+            <Button variant="contained" disabled={this.props.loading} color="primary" className={classes.button} onClick={() => this.handleSubmit()}>
+                Save &nbsp;
+                {(this.props.loading) ? <CircularProgress className={classes.spinner} size={24} /> : <AddButton /> }
+            </Button>
+        )
+    }
+
+    renderBackButton() {
+        const { classes } = this.props;
+
+        return (
+            <Button variant="contained" disabled={this.props.loading}  color="secondary" className={classes.button} onClick={() => this.handleBack()} >
+                Back &nbsp;
+                <CancelButton />
+            </Button>
+        )
     }
 
     render () {
@@ -118,14 +145,8 @@ class ContactCreate extends Component {
                         />
                     </CardContent>
                     <CardActions>
-                        <Button variant="contained" color="primary" className={classes.button} onClick={() => this.handleSubmit()}>
-                            Save &nbsp;
-                            <AddButton />
-                        </Button>
-                        <Button variant="contained" color="secondary" className={classes.button}>
-                            Back &nbsp;
-                            <CancelButton />
-                        </Button>
+                        {this.renderSaveButton()}
+                        {this.renderBackButton()}
                     </CardActions>
                 </Card>
             </form>
