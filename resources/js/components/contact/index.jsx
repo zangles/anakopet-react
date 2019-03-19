@@ -83,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         startLoading: () => dispatch(startLoading()),
         stopLoading: () => dispatch(stopLoading()),
-        changeView: (view) => dispatch(changeView(view))
+        changeView: (view, data) => dispatch(changeView(view, data))
     }
 };
 

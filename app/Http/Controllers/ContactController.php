@@ -23,7 +23,7 @@ class ContactController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return ContactResource
      */
     public function store(ContactStoreRequest $request)
     {
@@ -42,12 +42,13 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @param Contact $contact
+     *
+     * @return ContactResource
      */
     public function show(Contact $contact)
     {
-        //
+        return new ContactResource($contact);
     }
 
     /**

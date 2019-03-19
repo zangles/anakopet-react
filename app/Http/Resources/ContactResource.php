@@ -21,7 +21,8 @@ class ContactResource extends JsonResource
             'address' => $this->address,
             'phone' => $this->phone,
             'description' => $this->description,
-            'pets' => PetResource::collection($this->pet)
+            'pets' => PetResource::collection($this->pet),
+            'turns' => TurnResource::collection($this->turn)
         ];
     }
 }

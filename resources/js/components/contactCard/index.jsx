@@ -15,6 +15,9 @@ import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/core/styles';
 
 import { styles } from './styles'
+import {changeView, startLoading, stopLoading} from "../../actions/view";
+import {withSnackbar} from "notistack";
+import withApiService from "../../actions/withApiService";
 
 class ContactCard extends Component {
 
@@ -27,7 +30,7 @@ class ContactCard extends Component {
     }
 
     handleContactCardClick (id) {
-        console.log(id);
+        this.props.changeView('contact view', {id: id})
     }
 
     render () {
@@ -65,4 +68,16 @@ class ContactCard extends Component {
     }
 }
 
-export default withStyles(styles)(ContactCard);
+const mapStateToProps = (globalState) => {
+    return {
+        viewData: globalState.view.data
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeView: (view, data) => dispatch(changeView(view, data))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(withApiService(ContactCard)));

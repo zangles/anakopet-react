@@ -21,6 +21,7 @@ const viewReducer = (state = initialState, action) => {
         CHANGE_VIEW: () => {
             return updateState({
                 actualView: action.view,
+                data: action.data,
             });
         },
         LOADING: () => {

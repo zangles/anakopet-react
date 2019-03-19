@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import Dashboard from "../dashboard";
 import Contact from '../contact';
 import ContactCreacte from '../contactCreate';
+import ContactView from '../contactView';
 import ls from 'local-storage';
 import AppLayout from '../appLayout'
 
@@ -49,6 +50,8 @@ class Layout extends Component {
                 return (<Dashboard />);
             case 'contacts':
                 return (<Contact />);
+            case 'contact view':
+                return (<ContactView id={this.props.viewData.id} />);
             case 'create contact':
                 return (<ContactCreacte />);
             default:
@@ -70,7 +73,8 @@ class Layout extends Component {
 const mapStateToProps = (globalState) => {
     return {
         authToken: globalState.login.authToken,
-        view: globalState.view.actualView
+        view: globalState.view.actualView,
+        viewData: globalState.view.data
     }
 };
 

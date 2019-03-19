@@ -120,7 +120,7 @@ const mapStateToProps = (globalState) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
-        changeView: (view) => dispatch(changeView(view))
+        changeView: (view, data) => dispatch(changeView(view, data))
     }
 };
 

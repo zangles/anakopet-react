@@ -1,10 +1,11 @@
 import '../../config.jsx';
 
-export const changeView = (view) => {
+export const changeView = (view, data = {}) => {
     return (dispatch) => {
         dispatch({
             type: 'CHANGE_VIEW',
-            view
+            view,
+            data
         });
     }
 };

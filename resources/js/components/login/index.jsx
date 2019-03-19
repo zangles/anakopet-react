@@ -206,7 +206,7 @@ const mapStateToProps = (globalState) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         login: (tokenType, accessToken, refreshToken, expire) => dispatch(loginSuccessful(tokenType, accessToken, refreshToken, expire)),
-        changeView: (view) => dispatch(changeView(view))
+        changeView: (view, data) => dispatch(changeView(view, data))
     }
 };
 

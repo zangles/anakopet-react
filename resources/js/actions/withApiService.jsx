@@ -53,7 +53,8 @@ export default function withApiService(WrappedComponent) {
                         }
                         // return response.json();
                         return response.json().then((json) => {
-                           this.showMessage(json, message, onSuccess)
+                            this.showMessage(json, message, onSuccess);
+                            return JSON.stringify({data: json.data});
                         });
                     } else if (response.status === 204) {
                         return {};
