@@ -10,18 +10,14 @@ import AddButton from '@material-ui/icons/Save'
 import CancelButton from '@material-ui/icons/Backspace'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import withApiService from "../../actions/withApiService";
+import { withSnackbar } from 'notistack';
 
 import {styles} from "./styles";
 import Divider from '@material-ui/core/Divider';
-import {apiPost} from "../../actions/apiService";
-import { withSnackbar } from 'notistack';
-import PropTypes from "prop-types";
+
 
 class ContactCreate extends Component {
-
-    static propTypes = {
-        enqueueSnackbar: PropTypes.func.isRequired,
-    };
 
     state = {
         formData: {
@@ -44,18 +40,15 @@ class ContactCreate extends Component {
 
     handleSubmit () {
         this.props.startLoading();
-        apiPost('api/contacts', {
-            body: this.state.formData
+
+        this.props.apiPost('api/contacts', {
+            body: this.state.formData,
+            message: 'contacto creado',
+            onSuccess: () => {
+                this.props.changeView('contacts')
+            }
         }).then(json => {
             this.props.stopLoading();
-            let response = JSON.parse(json).data;
-            let errors = response.message;
-
-            if (response.status !== 200) {
-                errors.map((message, key) => {
-                    this.props.enqueueSnackbar(JSON.stringify(message), { variant: 'error', autoHideDuration: 2000 });
-                });
-            }
         });
     }
 
@@ -155,4 +148,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(withSnackbar(ContactCreate)));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(withSnackbar(withApiService(ContactCreate))));

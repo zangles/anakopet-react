@@ -27,7 +27,16 @@ class ContactController extends Controller
      */
     public function store(ContactStoreRequest $request)
     {
-        dd($request);
+        $contact = Contact::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'phone' => $request->input('phone'),
+            'descripton' => $request->input('description'),
+            'emergency' => $request->input('emergency'),
+        ]);
+
+        return new ContactResource($contact);
     }
 
     /**

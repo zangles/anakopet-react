@@ -26,6 +26,7 @@ class ContactStoreRequest extends BaseRequest
     {
         return [
             'name' => 'required',
+            'email' => 'required',
         ];
     }
 
