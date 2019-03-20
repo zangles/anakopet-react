@@ -23,7 +23,7 @@ import TurnsIcon from '@material-ui/icons/InsertInvitation';
 import TextField from '@material-ui/core/TextField';
 import PetCard from '../petCard';
 import Grid from '@material-ui/core/Grid';
-
+import TurnCard from '../turnCard'
 
 class ContactView extends Component {
 
@@ -150,12 +150,19 @@ class ContactView extends Component {
     }
 
     renderPetsTab () {
-        console.log(this.state.data.pets)
-
         return (
             <Grid container spacing={24}>
                 {this.state.data.pets.map(function(pet) {
-                    return (<Grid item lg={4} sm={6} xs={12}><PetCard data={pet} /></Grid>)
+                    return (
+                        <Grid
+                            item
+                            lg={4}
+                            sm={6}
+                            xs={12}
+                        >
+                            <PetCard data={pet} />
+                        </Grid>
+                    )
                 })}
             </Grid>
         )
@@ -163,7 +170,20 @@ class ContactView extends Component {
 
     renderTurnsTab () {
         return (
-            <div>turns</div>
+            <Grid container spacing={24}>
+                {this.state.data.turns.map(function(turn) {
+                    return (
+                        <Grid
+                            item
+                            lg={4}
+                            sm={6}
+                            xs={12}
+                        >
+                            <TurnCard data={turn} />
+                        </Grid>
+                    )
+                })}
+            </Grid>
         )
     }
 
@@ -179,16 +199,20 @@ class ContactView extends Component {
                 color: 'primary',
                 className: classes.fab,
                 icon: <EditIcon />,
-            },
+                onClick: () => {}
+            }
+            ,
             {
                 color: 'secondary',
                 className: classes.fab,
                 icon: <AddIcon />,
+                onClick: () => {}
             },
             {
                 color: 'inherit',
                 className: classNames(classes.fab, classes.fabGreen),
-                icon: <UpIcon />,
+                icon: <AddIcon />,
+                onClick: () => {window.scrollTo(0, 0)}
             },
         ];
 
@@ -229,7 +253,7 @@ class ContactView extends Component {
                                 }}
                                 unmountOnExit
                             >
-                                <Fab className={fab.className} color={fab.color}>
+                                <Fab className={fab.className} color={fab.color} onClick={fab.onClick}>
                                     {fab.icon}
                                 </Fab>
                             </Zoom>
