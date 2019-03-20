@@ -27,4 +27,8 @@ export const styles = theme => ({
         textAlign: 'right',
         float: 'right',
     },
+    tabContainer: {
+        overflowY: 'auto',
+        height: '500px'
+    }
 });

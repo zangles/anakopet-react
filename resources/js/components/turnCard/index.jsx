@@ -47,21 +47,16 @@ class TurnCard extends Component {
             turnTypeClass = classes.turnFullDay;
         }
         if (this.props.data.turn_type.id === 6) {
-            turnTypeClass = classes.night;
+            turnTypeClass = classes.turnNight;
         }
 
         return (
             <Card className={classNames(classes.card, turnTypeClass)}>
                 <CardContent>
                     <Grid container spacing={24}>
-                        <Grid item xs={6}>
-                            <Typography className={classes.title} color="textPrimary" component={'h2'} variant={'headline'} >
-                                <strong>{this.props.data.date}</strong>
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={6} className={classes.turnTypeText}>
+                        <Grid item xs={12} >
                             <Typography className={classes.title} color="textPrimary">
-                                {this.props.data.turn_type.name}
+                                <strong>{this.props.data.turn_type.name}</strong>
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>

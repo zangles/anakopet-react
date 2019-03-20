@@ -54,45 +54,38 @@ class PetCard extends Component {
                     subheader={this.props.data.breed}
                 />
                 <CardContent>
-                    <Typography component="p">
-                        <Table className={classes.table}>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell align="left" className={classes.cell1}><strong>Sex</strong></TableCell>
-                                    <TableCell align="left">{(this.props.data.sex === 'M') ? 'Male' : 'Female' }</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align="left"><strong>Desexed</strong></TableCell>
-                                    <TableCell align="left">{(this.props.data.desexed === 'Y') ? 'Yes' : 'No' }</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align="left"><strong>Age</strong></TableCell>
-                                    <TableCell align="left">{this.props.data.age}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align="left"><strong>Notes</strong></TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align="justify" colSpan={2} >{this.props.data.notes}</TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </Typography>
+                    <Table className={classes.table}>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell align="left" className={classes.cell1}><strong>Sex</strong></TableCell>
+                                <TableCell align="left">{(this.props.data.sex === 'M') ? 'Male' : 'Female' }</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell align="left"><strong>Desexed</strong></TableCell>
+                                <TableCell align="left">{(this.props.data.desexed === 'Y') ? 'Yes' : 'No' }</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell align="left"><strong>Age</strong></TableCell>
+                                <TableCell align="left">{this.props.data.age}</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell align="left"><strong>Notes</strong></TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell align="justify" colSpan={2} >{this.props.data.notes}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
-                    <IconButton
-                        className={classes.expand}
+                    <Fab
+                        color="primary"
                         aria-label="Edit"
+                        className={classNames(classes.fab, classes.expand)}
+                        size={'small'}
                     >
-                        <Fab
-                            color="primary"
-                            aria-label="Edit"
-                            className={classes.fab}
-                            size={'small'}
-                        >
-                            <EditIcon />
-                        </Fab>
-                    </IconButton>
+                        <EditIcon />
+                    </Fab>
                 </CardActions>
             </Card>
         );

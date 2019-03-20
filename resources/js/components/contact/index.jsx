@@ -39,6 +39,7 @@ class Contact extends Component {
                     direction="row"
                     justify="flex-start"
                     alignItems="flex-start"
+                    spacing={24}
                 >
                     {this.state.contacts.map(function(contact, index){
                         return (

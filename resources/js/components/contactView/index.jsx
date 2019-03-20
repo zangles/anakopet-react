@@ -24,6 +24,7 @@ import TextField from '@material-ui/core/TextField';
 import PetCard from '../petCard';
 import Grid from '@material-ui/core/Grid';
 import TurnCard from '../turnCard'
+import Divider from '@material-ui/core/Divider';
 
 class ContactView extends Component {
 
@@ -159,6 +160,7 @@ class ContactView extends Component {
                             lg={4}
                             sm={6}
                             xs={12}
+                            key={pet.id}
                         >
                             <PetCard data={pet} />
                         </Grid>
@@ -169,19 +171,42 @@ class ContactView extends Component {
     }
 
     renderTurnsTab () {
+        let lastTurnDate = '';
+        let showDate = false;
         return (
             <Grid container spacing={24}>
                 {this.state.data.turns.map(function(turn) {
-                    return (
+                    if (lastTurnDate !== turn.date) {
+                        lastTurnDate = turn.date;
+                        showDate = true;
+                    } else {
+                        showDate = false;
+                    }
+
+                    let dateSection = (showDate) ?
+                        (
+                            <Grid item xs={12} key={'date_' + turn.id} >
+                                <Divider />
+                                <Typography color="textPrimary" component={'h2'} variant={'headline'} >
+                                    <strong>{turn.date}</strong>
+                                </Typography>
+                            </Grid>
+                        )
+                        : '';
+
+                    let cardSection = (
                         <Grid
                             item
                             lg={4}
                             sm={6}
                             xs={12}
+                            key={turn.id}
                         >
                             <TurnCard data={turn} />
                         </Grid>
-                    )
+                    );
+
+                    return [dateSection, cardSection];
                 })}
             </Grid>
         )
@@ -236,9 +261,9 @@ class ContactView extends Component {
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <TabContainer dir={theme.direction}>{this.renderContactInfoTab()}</TabContainer>
-                    <TabContainer dir={theme.direction}>{this.props.loading ? '' : this.renderPetsTab()}</TabContainer>
-                    <TabContainer dir={theme.direction}>{this.renderTurnsTab()}</TabContainer>
+                    <TabContainer dir={theme.direction} classes={classes}>{this.renderContactInfoTab()}</TabContainer>
+                    <TabContainer dir={theme.direction} classes={classes}>{this.props.loading ? '' : this.renderPetsTab()}</TabContainer>
+                    <TabContainer dir={theme.direction} classes={classes}>{this.renderTurnsTab()}</TabContainer>
                 </SwipeableViews>
                 <div className={classes.fabContainer}>
                     {this.props.loading ?
@@ -270,10 +295,10 @@ class ContactView extends Component {
 }
 
 function TabContainer(props) {
-    const { children, dir } = props;
+    const { children, dir, classes } = props;
 
     return (
-        <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+        <Typography component="div" dir={dir} style={{ padding: 8 * 3 }} className={classes.tabContainer}>
             {children}
         </Typography>
     );

@@ -8,7 +8,7 @@
     >
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>AnaKo Petsit</title>
+    <title>Cork Petsit</title>
     <link href="{{ asset('css/app.css') }}?{{ rand(0,99999) }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
