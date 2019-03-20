@@ -22,6 +22,8 @@ import PetsIcon from '@material-ui/icons/Pets';
 import TurnsIcon from '@material-ui/icons/InsertInvitation';
 import TextField from '@material-ui/core/TextField';
 import PetCard from '../petCard';
+import Grid from '@material-ui/core/Grid';
+
 
 class ContactView extends Component {
 
@@ -151,11 +153,11 @@ class ContactView extends Component {
         console.log(this.state.data.pets)
 
         return (
-            <div>
+            <Grid container spacing={24}>
                 {this.state.data.pets.map(function(pet) {
-                    return (<PetCard data={pet} />)
+                    return (<Grid item lg={4} sm={6} xs={12}><PetCard data={pet} /></Grid>)
                 })}
-            </div>
+            </Grid>
         )
     }
 

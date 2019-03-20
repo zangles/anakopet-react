@@ -22,6 +22,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PetIcon from '@material-ui/icons/Pets'
 import EditIcon from '@material-ui/icons/Edit'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 class PetCard extends Component {
     static defaultProps = {
@@ -50,8 +55,28 @@ class PetCard extends Component {
                 />
                 <CardContent>
                     <Typography component="p">
-                        This impressive paella is a perfect party dish and a fun meal to cook together with your
-                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                        <Table className={classes.table}>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell align="left" className={classes.cell1}><strong>Sex</strong></TableCell>
+                                    <TableCell align="left">{(this.props.data.sex === 'M') ? 'Male' : 'Female' }</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="left"><strong>Desexed</strong></TableCell>
+                                    <TableCell align="left">{(this.props.data.desexed === 'Y') ? 'Yes' : 'No' }</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="left"><strong>Age</strong></TableCell>
+                                    <TableCell align="left">{this.props.data.age}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="left"><strong>Notes</strong></TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="justify" colSpan={2} >{this.props.data.notes}</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>

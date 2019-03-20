@@ -1,9 +1,14 @@
 import Red from '@material-ui/core/colors/red'
 import Blue from "@material-ui/core/colors/blue";
+import Grey from '@material-ui/core/colors/grey'
 
 export const styles = theme => ({
     card: {
-        maxWidth: 400,
+        maxWidth: '100%',
+        backgroundColor: Grey[100]
+    },
+    cell1: {
+        width: '50px'
     },
     media: {
         height: 0,
